@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#282828" />
+    <meta
+      name="description"
+      content="30 секунд до полуночи — событие на Minecraft-сервере. Скачивай сборку и присоединяйся к игре."
+    />
+    <title>30 секунд — Minecraft event</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="На главный экран">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>30 СЕК</span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#about">Информация</a>
+        <a href="#links">Ссылки</a>
+      </nav>
+
+      <a class="download-button" href="#download">
+        <span>Скачать сборку</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14" />
+        </svg>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> Minecraft event · 02.08</p>
+          <h1>ДЕНЬ РОЖДЕНИЯ<br /><span>Дениса</span></h1>
+          <p class="hero-lead">
+            Мир остановится через 30 секунд.<br />
+            Что ты успеешь изменить?
+          </p>
+          <a class="primary-button" href="#about">
+            Узнать больше
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <div class="world" aria-label="Парящие стилизованные Minecraft-блоки">
+          <div class="orbit orbit-one" aria-hidden="true"></div>
+          <div class="orbit orbit-two" aria-hidden="true"></div>
+          <div class="cube cube-main" aria-hidden="true">
+            <div class="cube-face cube-front"><i></i><i></i><i></i><i></i></div>
+            <div class="cube-face cube-right"></div>
+            <div class="cube-face cube-top"></div>
+          </div>
+          <div class="cube cube-small cube-a" aria-hidden="true">
+            <div class="cube-face cube-front"></div><div class="cube-face cube-right"></div><div class="cube-face cube-top"></div>
+          </div>
+          <div class="cube cube-small cube-b" aria-hidden="true">
+            <div class="cube-face cube-front"></div><div class="cube-face cube-right"></div><div class="cube-face cube-top"></div>
+          </div>
+          <div class="pixel-spark spark-a" aria-hidden="true"></div>
+          <div class="pixel-spark spark-b" aria-hidden="true"></div>
+          <div class="pixel-spark spark-c" aria-hidden="true"></div>
+          <p class="world-label">Сервер<br />не ждёт</p>
+        </div>
+
+        <div class="hero-meta" aria-label="Информация о событии">
+          <div><span>01</span><p>Старт<br /><strong>19:00 МСК</strong></p></div>
+          <div><span>02</span><p>Версия<br /><strong>1.20.1</strong></p></div>
+          <div><span>03</span><p>Вход<br /><strong>Свободный</strong></p></div>
+        </div>
+      </section>
+
+      <section class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>ИГРА НАЧНЁТСЯ</span><i></i><span>ИГРА НАЧНЁТСЯ</span><i></i><span>ИГРА НАЧНЁТСЯ</span><i></i><span>ИГРА НАЧНЁТСЯ</span><i></i><span>ИГРА НАЧНЁТСЯ</span><i></i><span>ИГРА НАЧНЁТСЯ</span><i></i><span>ИГРА НАЧНЁТСЯ</span><i></i><span>ИГРА НАЧНЁТСЯ</span><i></i><span>ИГРА НАЧНЁТСЯ</span><i></i>
+        </div>
+      </section>
+
+      <section class="about section" id="about">
+        <div class="section-heading reveal">
+          <p class="eyebrow dark"><span></span> Что происходит?</p>
+          <h2>Это не просто<br /><em>выживание</em></h2>
+          <p>
+            Один сервер, десятки игроков и ограниченное время. Исследуй мир,
+            объединяйся в команды и разгадай, что случится в полночь.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card feature-wide reveal">
+            <div class="card-number">01</div>
+            <div class="card-copy">
+              <h3>Живой мир</h3>
+              <p>Сюжет реагирует на решения игроков. Каждый выбор меняет общий финал.</p>
+            </div>
+            <div class="voxel-landscape" aria-hidden="true">
+              <div class="sun"></div><div class="hill h1"></div><div class="hill h2"></div><div class="tree"></div>
+            </div>
+          </article>
+
+          <article class="feature-card feature-pink reveal">
+            <div class="card-number">02</div>
+            <div class="pixel-clock" aria-hidden="true"><span>00:30</span></div>
+            <div class="card-copy">
+              <h3>Время решает</h3>
+              <p>Некоторые события доступны всего 30 секунд. Не пропусти сигнал.</p>
+            </div>
+          </article>
+
+          <article class="feature-card feature-dark reveal">
+            <div class="card-number">03</div>
+            <div class="player-stack" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="card-copy">
+              <h3>Вместе веселее</h3>
+              <p>Зови друзей или найди команду прямо на сервере.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="links-section section" id="links">
+        <div class="links-heading reveal">
+          <p class="eyebrow"><span></span> Будь на связи</p>
+          <h2>Следи за<br /><em>сигналом</em></h2>
+        </div>
+
+        <div class="social-grid">
+          <a class="social-card telegram reveal" href="https://t.me/losoosb" target="_blank" rel="noreferrer">
+            <span class="social-index">/01</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21.5 3.3-3 16.4c-.2 1.1-.9 1.4-1.8.9l-4.6-3.4-2.2 2.1c-.2.3-.5.5-.9.5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.7 13.8l-4.6-1.4c-1-.3-1-1 .2-1.5L20.2 4c.8-.3 1.5.2 1.3-.7Z" /></svg>
+            <div><h3>Telegram</h3><p>Новости, анонсы и чат участников</p></div>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a class="social-card twitch reveal" href="https://www.twitch.tv/lososisb" target="_blank" rel="noreferrer">
+            <span class="social-index">/02</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2h18v13l-5 5h-4l-3 3v-3H4V2Zm2 2v14h5v2l2-2h4l3-3V4H6Zm4 3h2v6h-2V7Zm5 0h2v6h-2V7Z" /></svg>
+            <div><h3>Twitch</h3><p>Прямой эфир с главного события</p></div>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a class="social-card qr-card reveal" href="https://t.me/losoosb" target="_blank" rel="noreferrer">
+            <span class="social-index">/03</span>
+            <div class="qr" aria-label="QR-код Telegram">
+              <div class="qr-grid"></div>
+            </div>
+            <div><h3>Наведи камеру</h3><p>И сохрани канал, чтобы не потеряться</p></div>
+          </a>
+        </div>
+      </section>
+
+      <section class="secret section" id="download">
+        <div class="secret-pixels" aria-hidden="true"></div>
+        <div class="secret-inner reveal">
+          <p class="eyebrow dark centered"><span></span> Доступ к сборке <span></span></p>
+          <h2>Знаешь <em>пароль?</em></h2>
+          <p>Введи секретное слово, чтобы разблокировать файл события.</p>
+          <form class="password-form" id="password-form">
+            <label class="sr-only" for="password">Секретный пароль</label>
+            <input id="password" type="password" placeholder="СЕКРЕТНЫЙ ПАРОЛЬ" autocomplete="off" />
+            <button type="submit" aria-label="Проверить пароль">→</button>
+          </form>
+          <p class="form-message" id="form-message" aria-live="polite"></p>
+          <span class="hint">Подсказка: слушай эфир внимательно</span>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand" href="#top"><span class="brand-mark"></span><span>30 СЕК</span></a>
+      <p>Неофициальное событие сообщества Minecraft · 2026</p>
+      <a href="#top">Наверх ↑</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
