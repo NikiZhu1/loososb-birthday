@@ -188,7 +188,7 @@ a.social-card:hover .arrow { transform: translate(5px, -5px); }
 .qr-card p { color: rgba(40,40,40,.7); }
 .qr-card .social-index { color: var(--dark); }
 .qr { position: absolute; left: 30px; top: 30px; bottom: 30px; aspect-ratio: 1; background: var(--mint); padding: 24px; }
-.qr-grid { background-image: url(./qrcode.png); width: 280px; height: 280px; background-size: cover; background-position: center;}
+.qr-grid { background-image: url(./qrcode.png); width: 280px; height: 280px; background-size: cover; background-repeat: no-repeat; background-position: center;}
 
 .secret { min-height: 740px; background: var(--mint); color: var(--dark); display: grid; place-items: center; position: relative; overflow: hidden; }
 .secret-inner { text-align: center; position: relative; z-index: 2; max-width: 800px; width: 100%; }
