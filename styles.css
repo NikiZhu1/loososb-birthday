@@ -203,7 +203,7 @@ button, input { font: inherit; }
 .about { background: var(--mint); color: var(--dark); }
 .section-heading { display: grid; grid-template-columns: 1.2fr .8fr; column-gap: 12%; align-items: end; margin-bottom: 70px; }
 .section-heading .eyebrow { grid-column: 1 / -1; }
-.section h2 { font-size: clamp(57px, 7vw, 110px); line-height: 1.1; }
+.section h2 { font-size: clamp(57px, 7vw, 110px); line-height: 0.67; }
 .section h2 em { color: var(--pink); font-style: normal; }
 .section-heading > p:last-child { font-size: 16px; line-height: 1.7; margin: 0 0 4px; max-width: 520px; }
 .feature-grid { display: grid; grid-template-columns: 1.35fr .65fr; grid-template-rows: 410px 410px; gap: 18px; }
