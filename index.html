@@ -41,12 +41,12 @@
 
     <main>
       <section class="hero" id="top">
-        <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span> Minecraft event · 16.08</p>
-          <h1>ДЕНЬ РОЖДЕНИЯ<br /><span>Дениса</span></h1>
-          <p class="hero-lead">
-            Мир остановится через 30 секунд.<br />
-            Что ты успеешь изменить?
+        <div class="hero-copy reveal" id="hero-copy">
+          <p class="eyebrow"><span></span><span class="eyebrow-text" id="hero-kicker">Персонаж 01 · Denis4</span></p>
+          <h1 id="hero-title"><span class="hero-title-line" data-text="ГЛАВНЫЙ ИГРОК">ГЛАВНЫЙ ИГРОК</span><br /><span class="hero-character-name" data-text="Денис">Денис</span></h1>
+          <p class="hero-lead" id="hero-lead">
+            Здесь будет короткая история Дениса.<br />
+            Пока это текст-заглушка для первой модели.
           </p>
           <a class="primary-button" href="#about">
             Узнать больше
@@ -54,24 +54,59 @@
           </a>
         </div>
 
-        <div class="world" aria-label="Парящие стилизованные Minecraft-блоки">
+        <div class="world" aria-label="Витрина персонажей">
           <div class="orbit orbit-one" aria-hidden="true"></div>
           <div class="orbit orbit-two" aria-hidden="true"></div>
-          <div class="cube cube-main" aria-hidden="true">
-            <div class="cube-face cube-front"><i></i><i></i><i></i><i></i></div>
-            <div class="cube-face cube-right"></div>
-            <div class="cube-face cube-top"></div>
-          </div>
-          <div class="cube cube-small cube-a" aria-hidden="true">
-            <div class="cube-face cube-front"></div><div class="cube-face cube-right"></div><div class="cube-face cube-top"></div>
-          </div>
-          <div class="cube cube-small cube-b" aria-hidden="true">
-            <div class="cube-face cube-front"></div><div class="cube-face cube-right"></div><div class="cube-face cube-top"></div>
+          <div class="model-showcase" id="model-showcase">
+            <button class="model-card" type="button" data-model="denis4" data-position="center" aria-current="true" aria-label="Денис — выбранный персонаж">
+              <model-viewer
+                data-model-source="denis4"
+                alt="3D-модель Дениса"
+                loading="eager"
+                autoplay
+                interaction-prompt="none"
+                exposure="0.84"
+                shadow-softness="0"
+                camera-orbit="150deg 92deg auto"
+                interpolation-decay="120"
+                field-of-view="37deg"
+              ></model-viewer>
+              <!-- <span class="model-name">Denis4</span> -->
+            </button>
+            <button class="model-card" type="button" data-model="cameraman" data-position="right" aria-label="Выбрать Камерамена">
+              <model-viewer
+                data-model-source="cameraman"
+                alt="3D-модель Камерамена"
+                autoplay
+                interaction-prompt="none"
+                shadow-intensity="0.67"
+                exposure="0.84"
+                shadow-softness="1"
+                camera-orbit="200deg 72deg auto"
+                interpolation-decay="120"
+                field-of-view="37deg"
+              ></model-viewer>
+              <!-- <span class="model-name">Cameraman</span> -->
+            </button>
+            <button class="model-card" type="button" data-model="chemical" data-position="left" aria-label="Выбрать Химика">
+              <model-viewer
+                data-model-source="chemical"
+                alt="3D-модель бронированного Химика"
+                autoplay
+                interaction-prompt="none"
+                shadow-intensity="0.67"
+                exposure="0.84"
+                shadow-softness="1"
+                camera-orbit="-145deg 78.85deg 5.006m"
+                interpolation-decay="120"
+                field-of-view="37deg"
+              ></model-viewer>
+              <!-- <span class="model-name">Chemical</span> -->
+            </button>
           </div>
           <div class="pixel-spark spark-a" aria-hidden="true"></div>
           <div class="pixel-spark spark-b" aria-hidden="true"></div>
           <div class="pixel-spark spark-c" aria-hidden="true"></div>
-          <p class="world-label">Сервер<br />не ждёт</p>
         </div>
 
         <div class="hero-meta" aria-label="Информация о событии">
@@ -185,6 +220,8 @@
       <a href="#top">Наверх ↑</a>
     </footer>
 
+    <script src="assets/models/models-data.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
     <script src="script.js"></script>
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
