@@ -142,24 +142,11 @@
           <article class="feature-card feature-wide reveal">
             <div class="card-number">01</div>
             <div class="card-copy">
-              <h3>Общий донат</h3>
-              <p>Поддержка сообщества в реальном времени. Сумма обновляется автоматически.</p>
+              <h3>Живой мир</h3>
+              <p>Сюжет реагирует на решения игроков. Каждый выбор меняет общий финал.</p>
             </div>
-            <div
-              class="donation-display"
-              id="donation-widget"
-              data-endpoint="https://denis-donation-total.nikizhu78.workers.dev/api/total"
-            >
-              <span class="donation-signal" aria-hidden="true"></span>
-              <p class="donation-label">Собрано вместе</p>
-              <p class="donation-amount">
-                <span id="donation-total-value">—</span>
-                <small id="donation-total-currency">RUB</small>
-              </p>
-              <p class="donation-other-totals" id="donation-other-totals"></p>
-              <p class="donation-status" id="donation-status" aria-live="polite">
-                Подключаемся к DonationAlerts…
-              </p>
+            <div class="voxel-landscape" aria-hidden="true">
+              <div class="sun"></div><div class="hill h1"></div><div class="hill h2"></div><div class="tree"></div>
             </div>
           </article>
 
@@ -195,6 +182,9 @@
           <a class="social-card telegram reveal" href="https://t.me/losoosb" target="_blank" rel="noreferrer">
             <span class="social-index">/01</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21.5 3.3-3 16.4c-.2 1.1-.9 1.4-1.8.9l-4.6-3.4-2.2 2.1c-.2.3-.5.5-.9.5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.7 13.8l-4.6-1.4c-1-.3-1-1 .2-1.5L20.2 4c.8-.3 1.5.2 1.3-.7Z" /></svg>
+            <div class="qr" aria-label="QR-код Telegram">
+              <div class="qr-grid"></div>
+            </div>
             <div><h3>Telegram</h3><p>Личный канал именинника, оч крутой, подпишись пж</p></div>
             <span class="arrow">↗</span>
           </a>
@@ -205,16 +195,31 @@
             <div><h3>Twitch</h3><p>Прямой эфир с главного события</p></div>
             <span class="arrow">↗</span>
           </a>
-
-          <a class="social-card qr-card reveal" href="https://t.me/losoosb" target="_blank" rel="noreferrer">
+          
+        <article class="donation-card reveal">
+          <div class="donation-card-copy">
             <span class="social-index">/03</span>
-            <div class="qr" aria-label="QR-код Telegram">
-              <div class="qr-grid"></div>
-            </div>
-            <div><h3>Телефоном щёлк</h3><p>Тут тоже telegram-канал, просто теперь qr-код</p></div>
-          </a>
-        </div>
+            <h3>Общий донат</h3>
+            <p>Поддержка сообщества в реальном времени. Сумма обновляется автоматически.</p>
+          </div>
+          <div
+            class="donation-display donation-display-standalone"
+            id="donation-widget"
+            data-endpoint="https://denis-donation-total.nikizhu78.workers.dev/api/total"
+          >
+            <span class="donation-signal" aria-hidden="true"></span>
+            <p class="donation-label">Собрано вместе</p>
+            <p class="donation-amount">
+              <span id="donation-total-value">—</span>
+              <small id="donation-total-currency">RUB</small>
+            </p>
+            <p class="donation-other-totals" id="donation-other-totals"></p>
+            <p class="donation-status" id="donation-status" aria-live="polite">Загружаем сумму…</p>
+          </div>
+        </article>
       </section>
+
+      <section></section>
 
       <section class="secret section" id="download">
         <div class="secret-pixels" aria-hidden="true"></div>
