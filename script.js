@@ -85,19 +85,19 @@ document.querySelectorAll('model-viewer[data-model-source]').forEach((viewer) =>
 
 const modelContent = {
   denis4: {
-    kicker: 'Персонаж 01 · Denis4',
-    title: '<span class="hero-title-line" data-text="ГЛАВНЫЙ ИГРОК">ГЛАВНЫЙ ИГРОК</span><br><span class="hero-character-name" data-text="Денис">Денис</span>',
-    lead: 'Здесь будет короткая история Дениса.<br>Пока это текст-заглушка для первой модели.',
+    kicker: 'Роль 01 · Guests',
+    title: '<span class="hero-title-line" data-text="ПРИГЛАШЁННЫЕ">ПРИГЛАШЁННЫЕ</span><br><span class="hero-character-name" data-text="ГОСТИ">ГОСТИ</span>',
+    lead: 'Те кому повезло обзавестись кодом испытаний<br/> на событие FISH EXECUTION',
   },
   cameraman: {
-    kicker: 'Персонаж 02 · Cameraman',
-    title: '<span class="hero-title-line" data-text="ВСЁ В КАДРЕ">ВСЁ В КАДРЕ</span><br><span class="hero-character-name" data-text="Камерамен">Камерамен</span>',
-    lead: 'Он замечает то, что пропускают другие.<br>Здесь появится описание второй модели.',
+    kicker: 'Роль 02 · Cameraman',
+    title: '<span class="hero-title-line" data-text="ВСЕ В КАДРЕ">ВСЕ В КАДРЕ</span><br><span class="hero-character-name" data-text="Камерамен">Камерамен</span>',
+    lead: 'Глаза и уши стрима<br>Операторы не умирают.',
   },
   chemical: {
-    kicker: 'Персонаж 03 · Chemical',
-    title: '<span class="hero-title-line" data-text="ОПАСНАЯ ЗОНА">ОПАСНАЯ ЗОНА</span><br><span class="hero-character-name" data-text="Химик">Химик</span>',
-    lead: 'Броня, реактивы и неизвестная миссия.<br>Это временный текст для третьей модели.',
+    kicker: 'Роль 03 · Security',
+    title: '<span class="hero-title-line" data-text="ОПАСНАЯ ЗОНА">ОПАСНАЯ ЗОНА</span><br><span class="hero-character-name" data-text="ОХРАННИК">ОХРАННИК</span>',
+    lead: 'Исполнительный орган.<br>Неразговорчивы...',
   },
 };
 
