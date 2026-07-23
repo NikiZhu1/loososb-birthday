@@ -224,3 +224,61 @@ hero?.addEventListener('pointerleave', () => {
   window.cancelAnimationFrame(orbitFrame);
   setCardOrbit(modelCards[activeModel]);
 });
+
+const donationWidget = document.querySelector('#donation-widget');
+const donationValue = document.querySelector('#donation-total-value');
+const donationCurrency = document.querySelector('#donation-total-currency');
+const donationOtherTotals = document.querySelector('#donation-other-totals');
+const donationStatus = document.querySelector('#donation-status');
+
+const formatDonationAmount = (amount) =>
+  new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 2 }).format(amount);
+
+const loadDonationTotal = async () => {
+  if (!donationWidget) return false;
+
+  const endpoint = donationWidget.dataset.endpoint || '';
+  if (!endpoint || endpoint.includes('YOUR_SUBDOMAIN')) {
+    donationWidget.dataset.state = 'warning';
+    donationStatus.textContent = 'Укажите адрес Cloudflare Worker в index.html';
+    return false;
+  }
+
+  try {
+    const response = await fetch(endpoint, { headers: { Accept: 'application/json' } });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.error || `HTTP ${response.status}`);
+
+    donationValue.textContent = formatDonationAmount(result.primary.amount);
+    donationCurrency.textContent = result.primary.currency;
+
+    const secondaryTotals = Object.entries(result.totals || {})
+      .filter(([currency]) => currency !== result.primary.currency)
+      .map(([currency, amount]) => `${formatDonationAmount(amount)} ${currency}`);
+    donationOtherTotals.textContent = secondaryTotals.join(' · ');
+
+    if (result.complete) {
+      donationWidget.dataset.state = 'ready';
+      donationStatus.textContent = `Учтено донатов: ${result.processedDonations}`;
+    } else {
+      donationWidget.dataset.state = 'warning';
+      donationStatus.textContent = `Учтено ${result.processedDonations} из ${result.availableDonations}`;
+    }
+    return true;
+  } catch (error) {
+    donationWidget.dataset.state = 'error';
+    donationStatus.textContent =
+      error.message === 'not_connected'
+        ? 'Подключите аккаунт через /admin/connect'
+        : 'Не удалось получить сумму донатов';
+    return false;
+  }
+};
+
+loadDonationTotal();
+if (
+  donationWidget?.dataset.endpoint &&
+  !donationWidget.dataset.endpoint.includes('YOUR_SUBDOMAIN')
+) {
+  window.setInterval(loadDonationTotal, 60_000);
+}

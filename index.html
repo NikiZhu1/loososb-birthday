@@ -142,15 +142,24 @@
           <article class="feature-card feature-wide reveal">
             <div class="card-number">01</div>
             <div class="card-copy">
-              <h3>Живой мир</h3>
-              <p>Сюжет реагирует на решения игроков. Каждый выбор меняет общий финал.</p>
+              <h3>Общий донат</h3>
+              <p>Поддержка сообщества в реальном времени. Сумма обновляется автоматически.</p>
             </div>
-            <div class="voxel-landscape" aria-hidden="true">
-              <iframe 
-              src="https://www.donationalerts.com/widget/stream-stats/2493167?token=oOqy5z2jg4G4YBii8Hxf"
-              width="100%"
-              height="100%"
-              ></iframe>
+            <div
+              class="donation-display"
+              id="donation-widget"
+              data-endpoint="https://denis-donation-total.nikizhu78.workers.dev/api/total"
+            >
+              <span class="donation-signal" aria-hidden="true"></span>
+              <p class="donation-label">Собрано вместе</p>
+              <p class="donation-amount">
+                <span id="donation-total-value">—</span>
+                <small id="donation-total-currency">RUB</small>
+              </p>
+              <p class="donation-other-totals" id="donation-other-totals"></p>
+              <p class="donation-status" id="donation-status" aria-live="polite">
+                Подключаемся к DonationAlerts…
+              </p>
             </div>
           </article>
 
