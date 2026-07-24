@@ -350,6 +350,11 @@ button, input { font: inherit; }
   paint-order: stroke fill; 
 }
 
+.pixel-clock { 
+  align-self: center;
+}
+.pixel-clock span { font: 700 clamp(50px, 6vw, 92px)/1 var(--pixel); line-height: 0.67; }
+
 .section { padding: 130px clamp(22px, 7vw, 120px); }
 .about { background: var(--mint); color: var(--dark); }
 .section-heading { display: grid; grid-template-columns: 1.2fr .8fr; column-gap: 12%; align-items: end; margin-bottom: 70px; }
