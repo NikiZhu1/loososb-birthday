@@ -21,17 +21,59 @@ const form = document.querySelector('#password-form');
 const password = document.querySelector('#secret');
 const message = document.querySelector('#form-message');
 
+function downloadFile() {
+  const link = document.createElement('a');
+  link.href = './dragons.zip'; // Укажите путь к файлу
+  link.download = 'dragons.zip';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+function checkSecret(input) {
+  // Условие 1: длина от 5 до 10 символов
+  if (input.length < 5 || input.length > 10) return false;
+  
+  // Условие 2: содержит хотя бы одну цифру
+  if (!/\d/.test(input)) return false;
+  
+  // Условие 3: содержит хотя бы одну букву в верхнем регистре
+  if (!/[A-Z]/.test(input)) return false;
+  
+  // Условие 4: содержит хотя бы один спецсимвол
+  if (!/[!@#$%^&*()]/.test(input)) return false;
+  
+  // Условие 5: сумма ASCII-кодов символов делится на 7
+  let sum = 0;
+  for (let i = 0; i < input.length; i++) {
+    sum += input.charCodeAt(i);
+  }
+  
+  return sum % 7 === 0;
+}
+
 form?.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  if (!password.value.trim()) {
+  const userInput = password.value.trim();
+
+  if (!userInput) {
     message.textContent = 'Сначала введи секретное слово.';
     password.focus();
     return;
   }
 
-  message.textContent = 'Сигнал принят. Но время ещё не пришло.';
-  password.value = '';
+  // Проверяем секрет
+  if (checkSecret(userInput)) {
+    message.textContent = 'Доступ разрешён! Начинается скачивание...';
+    message.style.color = 'green';
+    downloadFile(); // Скачиваем файл
+    password.value = '';
+  } else {
+    message.textContent = 'Неверный секрет. Попробуй снова.';
+    password.value = '';
+    password.focus();
+  }
 });
 
 const showcase = document.querySelector('#model-showcase');
