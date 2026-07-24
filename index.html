@@ -53,6 +53,9 @@
 
     <main>
       <section class="hero" id="top">
+        <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+          <source src="assets/videos/бой.mp4" type="video/mp4" />
+        </video>
         <div class="hero-copy reveal" id="hero-copy">
           <p class="eyebrow"><span></span><span class="eyebrow-text" id="hero-kicker">Роль 01</span></p>
           <h1 id="hero-title"><span class="hero-title-line" data-text="ПРИГЛАШЁННЫЕ">ПРИГЛАШЁННЫЕ</span><br /><span class="hero-character-name" data-text="ГОСТИ">ГОСТИ</span></h1>
@@ -138,7 +141,7 @@
       <section class="about section" id="about">
         <div class="section-heading reveal">
           <p class="eyebrow dark"><span></span> Что происходит?</p>
-          <h2>Место проведения: <br /><em>Город-крепость Коулун</em></h2>
+          <h2 class="section-glitch-title">Место проведения: <br /><em><span class="section-glitch" data-text="Город-крепость Коулун">Город-крепость Коулун</span></em></h2>
           <div>
             <p>
               Практически не управляемое правительствами поселение, территория вне закона, 
@@ -154,12 +157,24 @@
         <div class="feature-grid">
           <article class="feature-card feature-wide reveal">
             <div class="card-number">01</div>
+            <div class="flight-carousel" data-videos="assets/videos/flight2.mp4,assets/videos/flight3.mp4,assets/videos/flight4.mp4">
+              <video class="flight-video" autoplay muted playsinline preload="metadata" aria-label="Видео живого мира">
+                <source src="assets/videos/flight2.mp4" type="video/mp4" />
+              </video>
+              <button class="flight-control flight-control-prev" type="button" aria-label="Предыдущее видео">
+                <span aria-hidden="true">←</span>
+              </button>
+              <button class="flight-control flight-control-next" type="button" aria-label="Следующее видео">
+                <span aria-hidden="true">→</span>
+              </button>
+              <div class="flight-progress" role="progressbar" aria-label="Видео 1 из 3" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
+                <span class="is-active"></span><span></span><span></span>
+              </div>
+            </div>
+
             <div class="card-copy">
               <h3>Живой мир</h3>
               <p>Сюжет реагирует на решения игроков. Каждый выбор меняет общий финал.</p>
-            </div>
-            <div class="voxel-landscape" aria-hidden="true">
-              <div class="sun"></div><div class="hill h1"></div><div class="hill h2"></div><div class="tree"></div>
             </div>
           </article>
 
@@ -188,7 +203,7 @@
       <section class="links-section section" id="links">
         <div class="links-heading reveal">
           <p class="eyebrow"><span></span> Будь на связи</p>
-          <h2>Следи за<br /><em>сигналом</em></h2>
+          <h2 class="section-glitch-title"><span class="section-glitch" data-text="Следи за">Следи за</span><br /><em><span class="section-glitch" data-text="сигналом">сигналом</span></em></h2>
         </div>
 
         <div class="social-grid">

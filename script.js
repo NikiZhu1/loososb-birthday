@@ -42,6 +42,14 @@ const heroTitle = document.querySelector('#hero-title');
 const heroLead = document.querySelector('#hero-lead');
 const showcaseCount = document.querySelector('#showcase-count');
 const hero = document.querySelector('.hero');
+const heroVideo = document.querySelector('.hero-video');
+const heroVideoSources = {
+  denis4: 'assets/videos/бой.mp4',
+  chemical: 'assets/videos/охрана.mp4',
+  cameraman: 'assets/videos/flight1.mp4',
+};
+const sectionGlitchTitles = [...document.querySelectorAll('.section-glitch-title')];
+let sectionGlitchTimer;
 
 const POINTER_TURN_X = -20;
 const POINTER_TURN_Y = -5;
@@ -87,7 +95,7 @@ const modelContent = {
   denis4: {
     kicker: 'Роль 01 · Guests',
     title: '<span class="hero-title-line" data-text="ПРИГЛАШЁННЫЕ">ПРИГЛАШЁННЫЕ</span><br><span class="hero-character-name" data-text="ГОСТИ">ГОСТИ</span>',
-    lead: 'Те кому повезло обзавестись кодом испытаний<br/> на событие FISH EXECUTION',
+    lead: 'Те, кому повезло обзавестись кодом испытаний<br/> на событие FISH EXECUTION',
   },
   cameraman: {
     kicker: 'Роль 02 · Cameraman',
@@ -142,6 +150,51 @@ const scheduleNextGlitch = () => {
   }, delay);
 };
 
+const playSectionGlitch = () => {
+  sectionGlitchTitles.forEach((title) => {
+    const parts = [...title.querySelectorAll('.section-glitch')];
+    title.classList.remove('is-glitching');
+    parts.forEach((part) => part.classList.remove('is-glitching'));
+    void title.offsetWidth;
+    title.classList.add('is-glitching');
+    parts.forEach((part) => part.classList.add('is-glitching'));
+  });
+
+  window.setTimeout(() => {
+    sectionGlitchTitles.forEach((title) => {
+      title.classList.remove('is-glitching');
+      title.querySelectorAll('.section-glitch').forEach((part) => part.classList.remove('is-glitching'));
+    });
+  }, 720);
+};
+
+const scheduleSectionGlitch = () => {
+  window.clearTimeout(sectionGlitchTimer);
+  if (!sectionGlitchTitles.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  sectionGlitchTimer = window.setTimeout(() => {
+    playSectionGlitch();
+    scheduleSectionGlitch();
+  }, 7000 + Math.random() * 5000);
+};
+
+if (sectionGlitchTitles.length) {
+  scheduleSectionGlitch();
+}
+
+const setHeroVideo = (modelName) => {
+  const source = heroVideoSources[modelName];
+  if (!heroVideo || !source || heroVideo.dataset.source === source) return;
+
+  heroVideo.dataset.source = source;
+  heroVideo.classList.add('is-changing');
+  heroVideo.src = source;
+  heroVideo.load();
+  heroVideo.play().catch(() => {});
+};
+
+heroVideo?.addEventListener('canplay', () => heroVideo.classList.remove('is-changing'));
+
 const setActiveModel = (nextIndex, resetAutoplay = true) => {
   if (!modelCards.length) return;
 
@@ -159,6 +212,7 @@ const setActiveModel = (nextIndex, resetAutoplay = true) => {
 
   const activeCard = modelCards[activeModel];
   const content = modelContent[activeCard.dataset.model];
+  setHeroVideo(activeCard.dataset.model);
   heroCopy?.classList.add('is-changing');
   window.clearTimeout(copyTimer);
   copyTimer = window.setTimeout(() => {
@@ -177,7 +231,7 @@ const setActiveModel = (nextIndex, resetAutoplay = true) => {
 const startAutoplay = () => {
   window.clearInterval(autoplayTimer);
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  autoplayTimer = window.setInterval(() => setActiveModel(activeModel + 1, false), 10000000000000);
+  autoplayTimer = window.setInterval(() => setActiveModel(activeModel + 1, false), 30000);
 };
 
 modelCards.forEach((card, index) => {
@@ -331,3 +385,40 @@ document.addEventListener('DOMContentLoaded', function() {
   updateTimer();
   setInterval(updateTimer, 1000);
 });
+
+const flightCarousel = document.querySelector('.flight-carousel');
+
+if (flightCarousel) {
+  const flightVideo = flightCarousel.querySelector('.flight-video');
+  const flightProgress = flightCarousel.querySelector('.flight-progress');
+  const flightSteps = [...flightProgress.querySelectorAll('span')];
+  const videos = flightCarousel.dataset.videos.split(',');
+  let activeVideo = 0;
+  let glitchTimer;
+
+  const showFlightGlitch = () => {
+    flightCarousel.classList.remove('is-switching');
+    void flightCarousel.offsetWidth;
+    flightCarousel.classList.add('is-switching');
+    window.clearTimeout(glitchTimer);
+    glitchTimer = window.setTimeout(() => flightCarousel.classList.remove('is-switching'), 450);
+  };
+
+  const updateFlightVideo = (nextIndex) => {
+    activeVideo = (nextIndex + videos.length) % videos.length;
+    showFlightGlitch();
+    flightVideo.classList.add('is-switching');
+    flightVideo.src = videos[activeVideo];
+    flightVideo.load();
+    flightVideo.play().catch(() => {});
+
+    flightSteps.forEach((step, index) => step.classList.toggle('is-active', index === activeVideo));
+    flightProgress.setAttribute('aria-valuenow', activeVideo + 1);
+    flightProgress.setAttribute('aria-label', `Видео ${activeVideo + 1} из ${videos.length}`);
+  };
+
+  flightVideo.addEventListener('canplay', () => flightVideo.classList.remove('is-switching'));
+  flightVideo.addEventListener('ended', () => updateFlightVideo(activeVideo + 1));
+  flightCarousel.querySelector('.flight-control-prev').addEventListener('click', () => updateFlightVideo(activeVideo - 1));
+  flightCarousel.querySelector('.flight-control-next').addEventListener('click', () => updateFlightVideo(activeVideo + 1));
+}
