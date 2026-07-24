@@ -1,0 +1,19 @@
+{
+  "name": "fish-execution",
+  "version": "1.0.0",
+  "description": "FISH EXECUTION — Minecraft server event landing page",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static HTML - no build required'",
+    "lint": "echo 'No linter configured for static HTML project'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NikiZhu1/loososb-birthday"
+  }
+}
