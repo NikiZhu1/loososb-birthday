@@ -131,7 +131,7 @@ button, input { font: inherit; }
 .hero h1 { font-size: clamp(58px, 6.5vw, 104px); line-height: .48; transition: opacity .18s ease, transform .18s ease; }
 .hero-title-line,
 .hero-character-name { position: relative; display: inline-block; }
-.hero-character-name { color: var(--pink); font-size: .61em; letter-spacing: -.04em; }
+.hero-character-name { color: var(--pink); font-size: .61em; }
 .hero-title-line::before,
 .hero-title-line::after,
 .hero-character-name::before,
@@ -354,7 +354,7 @@ button, input { font: inherit; }
 .h1 { width: 65%; height: 65%; left: 0; }.h2 { width: 55%; height: 48%; right: 0; transform: scaleX(-1); background: #4b9b77; }
 .tree { position: absolute; left: 24%; bottom: 20%; width: 22px; height: 80px; background: #65472e; box-shadow: -28px -44px 0 9px #32694f, 0 -64px 0 18px #32694f, 28px -42px 0 8px #32694f; }
 .pixel-clock { align-self: center; border: 3px solid var(--dark); padding: 18px 20px; box-shadow: 9px 9px 0 var(--mint); }
-.pixel-clock span { font: 700 clamp(50px, 6vw, 92px)/1 var(--pixel); letter-spacing: -.08em; }
+.pixel-clock span { font: 700 clamp(50px, 6vw, 92px)/1 var(--pixel); line-height: 0.67; }
 .player-stack { position: absolute; right: 9%; top: 11%; width: 150px; height: 150px; }
 .player-stack i { display: block; position: absolute; width: 38px; height: 38px; background: var(--mint); border: 3px solid var(--dark); box-shadow: 6px 6px 0 var(--pink); }
 .player-stack i:nth-child(1) { left: 53px; top: 0; }.player-stack i:nth-child(2) { left: 16px; top: 45px; }.player-stack i:nth-child(3) { right: 8px; top: 55px; }.player-stack i:nth-child(4) { left: 51px; bottom: 10px; }.player-stack i:nth-child(5) { left: 91px; bottom: 0; transform: scale(.7); }
@@ -373,12 +373,33 @@ a.social-card:hover { transform: translateY(-7px); border-color: var(--pink); }
 .social-card .arrow { position: absolute; right: 30px; bottom: 24px; font-size: 45px; color: var(--pink); transition: transform .3s; }
 a.social-card:hover .arrow { transform: translate(5px, -5px); }
 .twitch { background: rgba(254,0,150,.07); }
-.telegram { padding-right: 55%; }
+.telegram { 
+  padding-right: 55%; 
+  &:hover{
+    background-color: var(--mint);
+    color: var(--dark);
+    svg {
+      fill: var(--dark);
+      opacity: 0.85;
+    }
+    p {
+      color: var(--dark);
+      opacity: 0.85
+    }
+  }
+}
 .telegram .qr { left: auto; right: 30px; top: 38px; bottom: 32px; }
 .qr-card { grid-column: 1 / 3; min-height: 390px; background: var(--pink); color: var(--dark); padding-left: 42%; }
 .qr-card p { color: rgba(40,40,40,.7); }
 .qr-card .social-index { color: var(--dark); }
-.qr { position: absolute; left: 30px; top: 30px; bottom: 30px; aspect-ratio: 1; background: var(--mint); padding: 24px; }
+.qr { 
+  position: absolute; 
+  left: 30px; 
+  top: 30px; 
+  bottom: 30px; 
+  aspect-ratio: 1;
+  padding: 24px; 
+}
 .qr-grid { width: 100%; height: 100%; background-image: url(./qrcode.png); background-size: cover; background-repeat: no-repeat; background-position: center; }
 .donation-card { 
   grid-column: 1 / 3; 
@@ -399,7 +420,7 @@ a.social-card:hover .arrow { transform: translate(5px, -5px); }
   gap: 64px; 
 }
 .donation-card-copy .social-index { top: 0; right: 0; }
-.donation-card h3 { margin: 0 0 12px; color: var(--mint); font: 700 clamp(37px, 4vw, 60px)/1 var(--pixel); text-transform: uppercase; }
+.donation-card h3 { margin: 0 0 12px; color: var(--mint); font: 700 clamp(37px, 4vw, 60px)/1 var(--pixel); text-transform: uppercase; letter-spacing: 0.05em; }
 .donation-card p { margin: 0; font-size: 13px; line-height: 1.55; }
 .donation-card .donation-display { position: relative; inset: auto; min-height: 328px; }
 
@@ -544,7 +565,7 @@ footer > a:last-child:hover { color: var(--pink); }
   .donation-display { padding-inline: 18px; }
   .donation-amount { gap: 8px; }
   .donation-amount > span { font-size: 17vw; }
-  .social-grid { grid-template-columns: auto; }
+  .social-grid { display: flex; flex-direction: column; }
   .social-card { min-height: 280px; }
   .telegram { min-height: 280px; padding: 24px; }
   .qr-card { grid-column: auto; min-height: 570px; padding: 350px 24px 24px; }

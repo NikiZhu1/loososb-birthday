@@ -282,3 +282,52 @@ if (
 ) {
   window.setInterval(loadDonationTotal, 60_000);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Устанавливаем целевую дату (15 августа 2026 года)
+  const targetDate = new Date('2026-08-15T00:00:00').getTime();
+  const timerElement = document.getElementById('timer');
+
+  // Функция для правильного склонения слов
+  function declension(number, words) {
+    // words = [одна, две, пять]
+    // Например: declension(3, ['день', 'дня', 'дней']) → 'дня'
+    const cases = [2, 0, 1, 1, 1, 2];
+    const index = (number % 100 > 4 && number % 100 < 20) ? 2 : cases[Math.min(number % 10, 5)];
+    return words[index];
+  }
+
+  function updateTimer() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      timerElement.textContent = '00:00:00';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Правильные склонения
+    const daysWord = declension(days, ['день', 'дня', 'дней']);
+    const hoursWord = declension(hours, ['час', 'часа', 'часов']);
+    const minutesWord = declension(minutes, ['минута', 'минуты', 'минут']);
+    const secondsWord = declension(seconds, ['секунда', 'секунды', 'секунд']);
+
+    // Формат ЧЧ:ММ:СС
+    const formatted = 
+      String(days).padStart(2, '0') + ' ' + daysWord + ' ' +
+      String(hours).padStart(2, '0') + ' ' + hoursWord + ' ' +
+      String(minutes).padStart(2, '0') + ' ' + minutesWord + ' ' +
+      String(seconds).padStart(2, '0') + ' ' + secondsWord;
+
+    timerElement.textContent = formatted;
+  }
+
+  // Запускаем таймер
+  updateTimer();
+  setInterval(updateTimer, 1000);
+});
