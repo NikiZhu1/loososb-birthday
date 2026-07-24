@@ -88,10 +88,17 @@ button, input { font: inherit; }
   letter-spacing: .08em;
   box-shadow: 4px 4px 0 var(--pink);
   transition: transform .2s, box-shadow .2s;
+  max-width: fit-content;
 }
 .donat-button:hover { 
   transform: translate(3px, 3px); 
   box-shadow: 1px 1px 0 var(--pink); 
+}
+.donat-button > .arrow { 
+  font-size: 28px; 
+  color: var(--pink); 
+  transition: transform .3s;
+  margin-top: -5px;
 }
 
 .hero {
@@ -667,13 +674,14 @@ footer > a:last-child:hover { color: var(--pink); }
   .donation-amount { gap: 8px; }
   .donation-amount > span { font-size: 17vw; }
   .social-grid { display: flex; flex-direction: column; }
-  .social-card { min-height: 280px; }
+  .social-card { min-height: 220px; }
   .telegram { min-height: 280px; padding: 24px; }
   .qr-card { grid-column: auto; min-height: 570px; padding: 350px 24px 24px; }
   .qr { left: 24px; right: 24px; top: 24px; bottom: auto; width: calc(100% - 48px); }
   .qr-grid { background-size: 38px 38px; }
   .donation-card { min-height: auto; padding: 22px; }
   .donation-card .donation-display { min-height: 300px; }
+  .donat-button {max-width: none; justify-content: space-between; }
   .secret { min-height: 620px; }
   .password-form { box-shadow: 6px 6px 0 var(--pink); }
   .password-form input { padding: 18px 15px; font-size: 12px; }

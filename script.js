@@ -18,7 +18,7 @@ if ('IntersectionObserver' in window) {
 }
 
 const form = document.querySelector('#password-form');
-const password = document.querySelector('#password');
+const password = document.querySelector('#secret');
 const message = document.querySelector('#form-message');
 
 form?.addEventListener('submit', (event) => {
