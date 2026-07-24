@@ -698,7 +698,7 @@ footer > a:last-child:hover { color: var(--pink); }
   .donation-amount > span { font-size: 17vw; }
   .social-grid { display: flex; flex-direction: column; }
   .social-card { min-height: 220px; }
-  .telegram { min-height: 280px; padding: 24px; }
+  .telegram { min-height: 220px; padding: 24px; }
   .qr-card { grid-column: auto; min-height: 570px; padding: 350px 24px 24px; }
   .qr { left: 24px; right: 24px; top: 24px; bottom: auto; width: calc(100% - 48px); }
   .qr-grid { background-size: 38px 38px; }
