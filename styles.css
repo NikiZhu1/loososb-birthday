@@ -353,7 +353,6 @@ button, input { font: inherit; }
 }
 
 .pixel-clock { 
-  align-self: center;
   padding: 20px 0;
 }
 .pixel-clock span { font: 700 clamp(50px, 6vw, 92px)/1 var(--pixel); line-height: 0.67; }
@@ -690,9 +689,9 @@ footer > a:last-child:hover { color: var(--pink); }
   .model-card[data-position="left"] { left: -8%; }
   .model-card[data-position="right"] { left: 64%; }
   .world-label { right: 7%; top: 47%; font-size: 10px; }
-  .hero-meta { left: 20px; right: 20px; bottom: 25px; justify-content: space-between; gap: 6px; }
+  .hero-meta { left: 20px; right: 20px; bottom: 25px; gap: 6px; flex-direction: column;}
   .hero-meta > div { gap: 7px; }
-  .hero-meta p { letter-spacing: .05em; font-size: 8px; }
+  .hero-meta p { letter-spacing: .05em; font-size: 14px; display: flex; gap: 8px}
   .marquee span { font-size: 21px; }
   .section { padding: 78px 20px; }
   .section h2 { font-size: 16vw; }
