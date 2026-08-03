@@ -23,7 +23,8 @@ const message = document.querySelector('#form-message');
 
 function downloadFile() {
   const link = document.createElement('a');
-  link.href = './assets/FISHEX.zip';
+  const remoteArchive = 'https://denis-donation-total.nikizhu78.workers.dev/download/FISHEX.zip';
+  link.href = remoteArchive;
   link.download = 'FISHEX.zip';
   document.body.appendChild(link);
   link.click();
