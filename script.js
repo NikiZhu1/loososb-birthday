@@ -23,11 +23,20 @@ const message = document.querySelector('#form-message');
 
 function downloadFile() {
   const link = document.createElement('a');
-  link.href = './dragons.zip'; // Укажите путь к файлу
-  link.download = 'dragons.zip';
+  link.href = './assets/FISHEX.zip';
+  link.download = 'FISHEX.zip';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+}
+
+function openInstructionPage() {
+  const instructionUrl =
+    window.location.protocol === 'file:'
+      ? './instruction/index.html'
+      : '/instruction';
+
+  window.location.assign(instructionUrl);
 }
 
 function checkSecret(input) {
@@ -65,10 +74,13 @@ form?.addEventListener('submit', (event) => {
 
   // Проверяем секрет
   if (checkSecret(userInput)) {
-    message.textContent = 'Доступ разрешён! Начинается скачивание...';
+    message.textContent = 'Доступ разрешён! Скачиваем архив и открываем инструкцию...';
     message.style.color = 'green';
-    downloadFile(); // Скачиваем файл
+    downloadFile();
     password.value = '';
+
+    // Даём браузеру начать скачивание до перехода на другую страницу.
+    window.setTimeout(openInstructionPage, 100);
   } else {
     message.textContent = 'Неверный секрет. Попробуй снова.';
     password.value = '';

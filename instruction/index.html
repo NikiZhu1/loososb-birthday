@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#282828" />
+    <meta
+      name="description"
+      content="Инструкция по установке сборки для события FISH EXECUTION."
+    />
+    <title>Инструкция по установке — FISH EXECUTION</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="instruction-page">
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="instruction-header">
+      <a class="brand" href="../index.html" aria-label="Вернуться на главную">
+        <img
+          src="../assets/images/logo.webp"
+          alt="Логотип"
+          height="45"
+        />
+      </a>
+      <a class="instruction-back" href="../index.html">← На главную</a>
+    </header>
+
+    <main class="instruction-main">
+      <section class="instruction-hero">
+        <p class="eyebrow"><span></span> Сборка скачана</p>
+        <h1>ИНСТРУКЦИЯ<br /><em>ПО УСТАНОВКЕ</em></h1>
+        <p>
+          Здесь показана инструкция для установки сборки на примере TLauncher.
+          Если у вас другой лаунчер, то шаги могут отличаться, но в целом процесс будет похожим.
+          Главное установить верную версию Forge и самого майнкрафта.
+        </p>
+      </section>
+
+      <section class="instruction-steps" aria-label="Шаги установки">
+        <article class="instruction-step">
+          <span>01</span>
+          <div>
+            <h2>Откройте меню сборок</h2>
+            <p>
+              Кнопка <strong>TL Mods</strong> в лаунчере
+            </p>
+          </div>
+          <img src="../assets/images/instruction/Рисунок1_1.webp" alt="Шаг 1"/>
+        </article>
+
+        <article class="instruction-step">
+          <span>02</span>
+          <div>
+            <h2>Создайте сборку</h2>
+            <p>
+              Кнопка <strong>Создать</strong> сверху.
+            </p>
+          </div>
+          <img src="../assets/images/instruction/Рисунок2.webp" alt="Шаг 2"/>
+        </article>
+
+        <article class="instruction-step">
+          <span>03</span>
+          <div>
+            <h2>Выставите такие же значения</h2>
+            <p>
+              Тип загрузчика: <strong>Forge</strong><br />
+              Версия игры: <strong>1.20.1</strong><br />
+              Версия загрузчика: <strong>47.4.22</strong>
+            </p>
+          </div>
+          <img src="../assets/images/instruction/Рисунок3.webp" alt="Шаг 3"/>
+        </article>
+
+        <article class="instruction-step">
+          <span>04</span>
+          <div>
+            <h2>Перейдите в папку версии</h2>
+            <p>
+              Находим папку к нашей версии по пути:<br/>
+              <strong>.minecraft\versions\[имя_версии]</strong><br/>
+              Перейти в .minecraft можно нажав на кнопку с папкой, как на скриншоте.
+            </p>
+          </div>
+          <img src="../assets/images/instruction/Рисунок4.webp" alt="Шаг 4"/>
+        </article>
+
+        <article class="instruction-step">
+          <span>05</span>
+          <div>
+            <h2>Переносите файлы сборки</h2>
+            <p>
+              Переносите файлы сборки скачанные с сайта в вашу созданную.<br/>
+              Можно запускать!<br/>
+            </p>
+          </div>
+          <img src="../assets/images/instruction/Рисунок5.webp" alt="Шаг 5"/>
+        </article>
+
+        <article class="instruction-step">
+          <span>06</span>
+          <div>
+            <h2>Заходите на самый крутой сервер</h2>
+            <p>
+              Сетевая игра > добавить > fishex.myserver.best<br/>
+              Выставляйте настройки графики под свои ресурсы <br/>
+              Меняйте настройки управления под свои нужды<br/>
+              К сборке приложены органичные шейдеры<br/>
+            </p>
+          </div>
+          <button
+            class="copy-server-ip"
+            id="copy-server-ip"
+            type="button"
+            data-server-ip="fishex.myserver.best"
+          >
+            <span class="copy-server-ip-label">Скопировать IP</span>
+            <strong>fishex.myserver.best</strong>
+            <span class="copy-server-ip-icon" aria-hidden="true">⧉</span>
+          </button>
+        </article>
+      </section>
+
+      <section class="instruction-help">
+        <div>
+          <p class="eyebrow"><span></span> Что-то пошло не так?</p>
+          <h2>НУЖНА ПОМОЩЬ?</h2>
+        </div>
+        <a target="_blank" href="https://t.me/FLASH_ACID">
+            Пишите в telegram <span class="arrow">→</span>
+        </a>
+      </section>
+    </main>
+
+    <script>
+      const copyIpButton = document.querySelector('#copy-server-ip');
+      const copyIpLabel = copyIpButton?.querySelector('.copy-server-ip-label');
+
+      const fallbackCopy = (text) => {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        const copied = document.execCommand('copy');
+        textarea.remove();
+        if (!copied) throw new Error('Copy command failed');
+      };
+
+      copyIpButton?.addEventListener('click', async () => {
+        const serverIp = copyIpButton.dataset.serverIp;
+
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(serverIp);
+          } else {
+            fallbackCopy(serverIp);
+          }
+
+          copyIpButton.classList.add('is-copied');
+          copyIpLabel.textContent = 'IP скопирован';
+          window.setTimeout(() => {
+            copyIpButton.classList.remove('is-copied');
+            copyIpLabel.textContent = 'Скопировать IP';
+          }, 2200);
+        } catch {
+          copyIpLabel.textContent = 'Не удалось скопировать';
+        }
+      });
+    </script>
+  </body>
+</html>

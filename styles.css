@@ -74,6 +74,27 @@ button, input { font: inherit; }
 }
 .download-button svg { width: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
 
+.main-button {
+  display: flex;
+  width: fit-content;
+  gap: 12px;
+  align-items: center;
+  background: var(--mint);
+  color: var(--dark);
+  padding: 13px 18px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  box-shadow: 4px 4px 0 var(--pink);
+  transition: transform .2s, box-shadow .2s;
+}
+.main-button:hover { 
+  transform: translate(3px, 3px); 
+  box-shadow: 1px 1px 0 var(--pink); 
+}
+.main-button svg { width: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+
 .donat-button {
   justify-self: end;
   display: flex;
@@ -424,6 +445,14 @@ button, input { font: inherit; }
 .donation-display[data-state="error"] .donation-status,
 .donation-display[data-state="warning"] .donation-status { color: var(--pink); }
 
+.beta-test { 
+  background: var(--dark);
+  color: var(--pink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .links-section { background: var(--dark); }
 .links-heading { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
 .links-heading .eyebrow { align-self: flex-start; }
@@ -555,6 +584,114 @@ footer { min-height: 110px; padding: 28px clamp(22px, 4vw, 68px); display: flex;
 footer p, footer > a:last-child { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: rgba(246,244,242,.45); }
 footer > a:last-child:hover { color: var(--pink); }
 
+/* Installation instruction */
+.instruction-page { min-height: 100vh; background: var(--dark); }
+.instruction-header {
+  min-height: 80px;
+  padding: 0 clamp(22px, 7vw, 120px);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.instruction-back {
+  color: var(--mint);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.instruction-back:hover { color: var(--pink); }
+.instruction-main { padding: 90px clamp(22px, 7vw, 120px) 120px; }
+.instruction-hero { max-width: 1050px; margin-bottom: 85px; }
+.instruction-hero h1 {
+  margin: 0;
+  font: 700 clamp(65px, 9vw, 140px)/.7 var(--pixel);
+  text-transform: uppercase;
+}
+.instruction-hero h1 em { color: var(--pink); font-style: normal; }
+.instruction-hero > p:last-child {
+  max-width: 650px;
+  margin: 45px 0 0;
+  color: rgba(246,244,242,.65);
+  font-size: 17px;
+  line-height: 1.7;
+}
+.instruction-steps { display: flex; flex-direction: column; gap: 16px; }
+.instruction-step {
+  min-height: 190px;
+  padding: 32px;
+  border: 1px solid rgba(203,255,230,.25);
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: 30px;
+  align-items: start;
+  transition: border-color .25s, transform .25s;
+}
+.instruction-step:hover { border-color: var(--pink); transform: translateX(6px); }
+.instruction-step > span { color: var(--pink); font: 700 40px/1 var(--pixel); }
+.instruction-step h2 {
+  margin: 0 0 14px;
+  color: var(--mint);
+  font: 700 clamp(32px, 4vw, 58px)/.9 var(--pixel);
+  text-transform: uppercase;
+}
+.instruction-step p { max-width: 700px; margin: 0; color: rgba(246,244,242,.6); line-height: 1.65; }
+.instruction-step img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.copy-server-ip {
+  width: fit-content;
+  min-width: 310px;
+  padding: 20px;
+  border: 1px solid var(--mint);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 20px;
+  color: var(--white);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--pink);
+  transition: color .2s, background .2s, transform .2s, box-shadow .2s;
+}
+.copy-server-ip-label { color: rgba(246,244,242,.5); font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.copy-server-ip strong { grid-column: 1; color: var(--mint); font: 600 clamp(26px, 4vw, 58px)/.9 var(--pixel); letter-spacing: .04em; }
+.copy-server-ip-icon { grid-column: 2; align-self: center; color: var(--pink); font-size: clamp(26px, 3vw, 40px); }
+.copy-server-ip:hover,
+.copy-server-ip.is-copied { color: var(--dark); background: var(--mint); transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--pink); }
+.copy-server-ip:hover .copy-server-ip-label,
+.copy-server-ip.is-copied .copy-server-ip-label { color: rgba(40,40,40,.65); }
+.copy-server-ip:hover strong,
+.copy-server-ip.is-copied strong { color: var(--dark); }
+.copy-server-ip:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; }
+.instruction-help {
+  margin-top: 80px;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: end;
+  background: var(--mint);
+  color: var(--dark);
+}
+.instruction-help .eyebrow { margin-bottom: 18px; }
+.instruction-help h2 { margin: 0; font: 700 clamp(45px, 6vw, 85px)/.8 var(--pixel); }
+.instruction-help > p { margin: 0; line-height: 1.65; }
+.instruction-help a {
+  color: var(--dark);
+  pointer-events: auto;
+  opacity: 1;
+  display: inline;
+}
+.instruction-help a:hover {
+  color: var(--pink);
+  text-decoration: underline;
+}
+
 .me {
   display: flex;
   flex-direction: row;
@@ -672,6 +809,15 @@ footer > a:last-child:hover { color: var(--pink); }
   .donation-card .buttons { justify-content: space-between; }
   .buttons .primary-button { width: 100%; }
   .donat-button { width: 100%; max-width: none;}
+  .instruction-header { min-height: 68px; padding-inline: 20px; }
+  .instruction-header .brand { display: flex; }
+  .instruction-main { padding: 70px 20px 85px; }
+  .instruction-hero { margin-bottom: 55px; }
+  .instruction-hero h1 { font-size: 18vw; line-height: .78; }
+  .instruction-hero > p:last-child { margin-top: 32px; font-size: 15px; }
+  .instruction-step { grid-template-columns: 1fr; gap: 18px; padding: 24px; }
+  .copy-server-ip { grid-column: 1; min-width: 0; width: 100%; }
+  .instruction-help { grid-template-columns: 1fr; gap: 25px; margin-top: 55px; padding: 28px; }
 }
 
 @media (max-width: 620px) {
