@@ -26,6 +26,8 @@ function downloadFile() {
   const remoteArchive = 'https://denis-donation-total.nikizhu78.workers.dev/download/FISHEX.zip';
   link.href = remoteArchive;
   link.download = 'FISHEX.zip';
+  link.target = '_blank';
+  link.rel = 'noopener';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -81,7 +83,8 @@ form?.addEventListener('submit', (event) => {
     password.value = '';
 
     // Даём браузеру начать скачивание до перехода на другую страницу.
-    window.setTimeout(openInstructionPage, 100);
+    // Архив большой, поэтому не уничтожаем контекст загрузки мгновенным переходом.
+    window.setTimeout(openInstructionPage, 1800);
   } else {
     message.textContent = 'Неверный секрет. Попробуй снова.';
     password.value = '';
