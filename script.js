@@ -397,7 +397,7 @@ if (
 
 document.addEventListener('DOMContentLoaded', function() {
   // Устанавливаем целевую дату (15 августа 2026 года)
-  const targetDate = new Date('2026-08-15T00:00:00').getTime();
+  const targetDate = new Date('2026-08-15T15:00:00').getTime();
   const timerElement = document.getElementById('timer');
 
   // Функция для правильного склонения слов
