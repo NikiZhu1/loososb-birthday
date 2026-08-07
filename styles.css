@@ -191,6 +191,12 @@ button, input { font: inherit; }
 .eyebrow > span { width: 8px; height: 8px; display: inline-block; background: var(--pink); }
 .eyebrow > .eyebrow-text { width: auto; height: auto; background: none; }
 .eyebrow.dark { color: var(--dark); }
+
+.eyebrow { margin: 24px 0 0; font-size: 11px; text-transform: uppercase; letter-spacing: .22em; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+.eyebrow > span { width: 8px; height: 8px; display: inline-block; background: var(--pink); }
+.eyebrow > .eyebrow-text { width: auto; height: auto; background: none; }
+.eyebrow.dark { color: var(--dark); }
+
 .hero h1, .section h2 {
   font-family: var(--pixel);
   text-transform: uppercase;
@@ -692,6 +698,29 @@ footer > a:last-child:hover { color: var(--pink); }
   text-decoration: underline;
 }
 
+.dosnt_download {
+  margin-bottom: 40px;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  gap: 50px;
+  align-items: end;
+  background: var(--mint);
+  color: var(--dark);
+}
+.dosnt_download h2 { margin: 0; font: 700 clamp(45px, 6vw, 85px)/.8 var(--pixel); }
+.dosnt_download > p { margin: 0; line-height: 1.65; }
+.dosnt_download a {
+  color: var(--dark);
+  pointer-events: auto;
+  opacity: 1;
+  display: inline;
+}
+.dosnt_download a:hover {
+  color: var(--pink);
+  text-decoration: underline;
+}
+
 .me {
   display: flex;
   flex-direction: row;
@@ -818,6 +847,7 @@ footer > a:last-child:hover { color: var(--pink); }
   .instruction-step { grid-template-columns: 1fr; gap: 18px; padding: 24px; }
   .copy-server-ip { grid-column: 1; min-width: 0; width: 100%; }
   .instruction-help { grid-template-columns: 1fr; gap: 25px; margin-top: 55px; padding: 28px; }
+  .dosnt_download { grid-template-columns: 1fr; gap: 25px; margin-top: 55px; padding: 28px; }
 }
 
 @media (max-width: 620px) {
