@@ -455,7 +455,7 @@ button, input { font: inherit; }
   background: var(--dark);
   color: var(--pink);
   display: grid;
-  gap: 16px;
+  gap: 32px;
   align-items: center;
   grid-auto-flow: column;
   grid-template-columns: 1fr 1fr;
@@ -853,6 +853,12 @@ footer > a:last-child:hover { color: var(--pink); }
   .copy-server-ip { grid-column: 1; min-width: 0; width: 100%; }
   .instruction-help { grid-template-columns: 1fr; gap: 25px; margin-top: 55px; padding: 28px; }
   .dosnt_download { grid-template-columns: 1fr; gap: 25px; margin-top: 55px; padding: 28px; }
+}
+
+@media (max-width: 800px) {
+  .fishex-video { 
+    width: 100%;
+  }
 }
 
 @media (max-width: 620px) {
