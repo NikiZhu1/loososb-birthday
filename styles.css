@@ -454,9 +454,11 @@ button, input { font: inherit; }
 .beta-test { 
   background: var(--dark);
   color: var(--pink);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  gap: 16px;
   align-items: center;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
 }
 
 .links-section { background: var(--dark); }
@@ -568,8 +570,11 @@ article.twitch-card:hover > .twitch-card-copy > .twitch-card-copy-start > .arrow
   justify-content: space-between;
 }
 
-@media (max-width: 1024px) {
-  /* .telegram {padding-right: 15%; } */
+@media (max-width: 1250px) {
+  .beta-test {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+   }
 }
 
 .secret { min-height: 740px; background: var(--mint); color: var(--dark); display: grid; place-items: center; position: relative; overflow: hidden; }
