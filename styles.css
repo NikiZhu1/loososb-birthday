@@ -454,15 +454,21 @@ button, input { font: inherit; }
   align-items: center;
   grid-auto-flow: row;
   grid-template-columns: 1.3fr 1fr;
+  padding-right: 0;
 }
 
 .beta-test h2 {
   color: var(--pink);
 }
 
+.beta-test .how_it_was_text {
+  padding-right: clamp(22px, 7vw, 120px);
+}
+
 .how_it_was {
   gap: 400px;
   grid-row: 1 / 2;
+  margin-right: clamp(22px, 7vw, 120px);
 }
 
 .thanks-streamers {
@@ -491,7 +497,7 @@ button, input { font: inherit; }
   flex: 0 0 min(620px, 100%);
   width: min(620px, 100%);
   height: auto;
-  aspect-ratio: 620 / 378;
+  aspect-ratio: 1140 / 640;
 }
 
 .twitch-corousel {
@@ -926,6 +932,12 @@ footer > a:last-child:hover { color: var(--pink); }
   .section { padding: 78px 20px; }
   .section h2 { font-size: 16vw; }
   .section-heading { margin-bottom: 45px; }
+  .twitch-corousel { gap: 16px; padding-right: 20px; }
+  .twitch-corousel .twitch-iframe {
+    flex-basis: calc(100% - 32px);
+    width: calc(100% - 32px);
+    max-width: none;
+  }
   .feature-grid { grid-template-rows: 60px 360px; }
   .feature-card { padding: 22px; }
   .flight-control { width: 44px; height: 44px; }
