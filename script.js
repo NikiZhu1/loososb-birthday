@@ -444,9 +444,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setInterval(updateTimer, 1000);
 });
 
-const flightCarousel = document.querySelector('.flight-carousel');
-
-if (flightCarousel) {
+document.querySelectorAll('.flight-carousel').forEach((flightCarousel) => {
   const flightProgress = flightCarousel.querySelector('.flight-progress');
   const flightSteps = [...flightProgress.querySelectorAll('span')];
   const media = flightCarousel.dataset.videos.split(',').map((item) => item.trim()).filter(Boolean);
@@ -493,4 +491,4 @@ if (flightCarousel) {
   flightCarousel.querySelector('.flight-control-prev').addEventListener('click', () => updateFlightVideo(activeVideo - 1));
   flightCarousel.querySelector('.flight-control-next').addEventListener('click', () => updateFlightVideo(activeVideo + 1));
   updateFlightVideo(0);
-}
+});
