@@ -503,8 +503,29 @@ button, input { font: inherit; }
 .twitch-corousel {
   display: flex;
   gap: 16px;
-  overflow: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
+  padding-bottom: 12px;
+  scrollbar-color: var(--mint) rgba(203,255,230,.14);
+  scrollbar-width: thin;
+}
+
+.twitch-corousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.twitch-corousel::-webkit-scrollbar-track {
+  background: rgba(203,255,230,.12);
+  border: 1px solid rgba(203,255,230,.18);
+}
+
+.twitch-corousel::-webkit-scrollbar-thumb {
+  background: var(--pink);
+  border: 1px solid var(--mint);
+}
+
+.twitch-corousel::-webkit-scrollbar-thumb:hover {
+  background: var(--mint);
 }
 
 .links-section { background: var(--dark); }
