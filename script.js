@@ -361,7 +361,7 @@ const loadDonationTotal = async () => {
     const result = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(result.error || `HTTP ${response.status}`);
 
-    donationValue.textContent = formatDonationAmount(result.primary.amount) * 0.9;
+    donationValue.textContent = formatDonationAmount(result.primary.amount);
     donationCurrency.textContent = result.primary.currency;
 
     const secondaryTotals = Object.entries(result.totals || {})
