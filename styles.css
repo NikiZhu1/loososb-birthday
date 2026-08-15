@@ -454,7 +454,6 @@ button, input { font: inherit; }
   align-items: center;
   grid-auto-flow: row;
   grid-template-columns: 1.3fr 1fr;
-  row-gap: 128px;
 }
 
 .beta-test h2 {
@@ -488,8 +487,11 @@ button, input { font: inherit; }
 }
 
 .twitch-corousel .twitch-iframe {
-  max-width: 620px;
-  width: 100%;
+  display: block;
+  flex: 0 0 min(620px, 100%);
+  width: min(620px, 100%);
+  height: auto;
+  aspect-ratio: 620 / 378;
 }
 
 .twitch-corousel {
