@@ -412,6 +412,16 @@ button, input { font: inherit; }
 .card-copy { position: relative; z-index: 3; max-width: 390px; }
 .card-copy h3 { margin: 0 0 12px; text-transform: uppercase; font: 700 clamp(31px, 3.2vw, 54px)/.9 var(--pixel); }
 .card-copy p { margin: 0; max-width: 360px; line-height: 1.55; font-size: 14px; }
+.trailer-controls { display: flex; align-items: center; gap: 10px; }
+.trailer-controls[hidden] { display: none; }
+.trailer-button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 9px 13px; border: 1px solid var(--mint); color: var(--mint); background: rgba(40,40,40,.22); backdrop-filter: blur(5px); cursor: pointer; transition: color .18s ease, background .18s ease, border-color .18s ease; }
+.trailer-button:hover, .trailer-button:focus-visible { color: var(--dark); background: var(--mint); outline: none; }
+.trailer-button svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: square; stroke-linejoin: miter; }
+.trailer-button .sound-speaker { fill: currentColor; stroke: none; }
+.trailer-button span { font: 700 24px/1 var(--pixel); letter-spacing: .08em; }
+.trailer-sound[aria-pressed="false"] .sound-waves { display: none; }
+.trailer-sound[aria-pressed="true"] .sound-muted { display: none; }
+.trailer-fullscreen { width: 44px; padding-inline: 9px; }
 .donation-display {
   position: absolute;
   inset: 12% 3% 27%;
@@ -469,6 +479,14 @@ button, input { font: inherit; }
   gap: 400px;
   grid-row: 1 / 2;
   margin-right: clamp(22px, 7vw, 120px);
+
+  card-number {
+    height: 36px;
+  }
+
+  card-copy {
+    height: 44px;
+  }
 }
 
 .thanks-streamers {

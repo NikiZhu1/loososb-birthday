@@ -445,6 +445,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.querySelectorAll('.flight-carousel').forEach((flightCarousel) => {
+  const featureCard = flightCarousel.closest('.feature-card');
+  const isTrailerCarousel = featureCard?.classList.contains('how_it_was');
+  const cardNumber = featureCard?.querySelector('.card-number');
+  const trailerControls = featureCard?.querySelector('.trailer-controls');
+  const soundButton = trailerControls?.querySelector('.trailer-sound');
+  const fullscreenButton = trailerControls?.querySelector('.trailer-fullscreen');
   const flightProgress = flightCarousel.querySelector('.flight-progress');
   const flightSteps = [...flightProgress.querySelectorAll('span')];
   const media = flightCarousel.dataset.videos.split(',').map((item) => item.trim()).filter(Boolean);
@@ -482,6 +488,16 @@ document.querySelectorAll('.flight-carousel').forEach((flightCarousel) => {
     currentMedia?.remove();
     flightCarousel.insertBefore(nextMedia, flightCarousel.firstChild);
 
+    if (isTrailerCarousel) {
+      const trailerIsActive = !isImage && activeVideo === 0;
+      if (cardNumber) cardNumber.textContent = trailerIsActive ? 'ТРЕЙЛЕР' : '';
+      if (trailerControls) trailerControls.hidden = !trailerIsActive;
+      if (soundButton) {
+        soundButton.setAttribute('aria-pressed', 'false');
+        soundButton.setAttribute('aria-label', 'Включить звук');
+      }
+    }
+
     flightSteps.forEach((step, index) => step.classList.toggle('is-active', index === activeVideo));
     flightProgress.setAttribute('aria-valuenow', activeVideo + 1);
     flightProgress.setAttribute('aria-valuemax', media.length);
@@ -490,5 +506,18 @@ document.querySelectorAll('.flight-carousel').forEach((flightCarousel) => {
 
   flightCarousel.querySelector('.flight-control-prev').addEventListener('click', () => updateFlightVideo(activeVideo - 1));
   flightCarousel.querySelector('.flight-control-next').addEventListener('click', () => updateFlightVideo(activeVideo + 1));
+  soundButton?.addEventListener('click', () => {
+    const video = flightCarousel.querySelector('.flight-video');
+    if (!video) return;
+    video.muted = !video.muted;
+    soundButton.setAttribute('aria-pressed', String(!video.muted));
+    soundButton.setAttribute('aria-label', video.muted ? 'Включить звук' : 'Выключить звук');
+  });
+  fullscreenButton?.addEventListener('click', () => {
+    const video = flightCarousel.querySelector('.flight-video');
+    if (!video) return;
+    if (video.requestFullscreen) video.requestFullscreen();
+    else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+  });
   updateFlightVideo(0);
 });
