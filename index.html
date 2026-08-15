@@ -151,30 +151,69 @@
 
       <section class="marquee" aria-hidden="true">
         <div class="marquee-track">
-          <span>СТАРТ СКОРО</span><span>СТАРТ СКОРО</span><span>СТАРТ СКОРО</span><span>СТАРТ СКОРО</span><span>СТАРТ СКОРО</span><span>СТАРТ СКОРО</span><span>СТАРТ СКОРО</span><span>СТАРТ СКОРО</span><span>СТАРТ СКОРО</span><span>СТАРТ СКОРО</span><span>СТАРТ СКОРО</span><span>СТАРТ СКОРО</span>
+          <span>СОБЫТИЕ ЗАВЕРШЕНО</span><span>СОБЫТИЕ ЗАВЕРШЕНО</span><span>СОБЫТИЕ ЗАВЕРШЕНО</span><span>СОБЫТИЕ ЗАВЕРШЕНО</span><span>СОБЫТИЕ ЗАВЕРШЕНО</span><span>СОБЫТИЕ ЗАВЕРШЕНО</span><span>СОБЫТИЕ ЗАВЕРШЕНО</span><span>СОБЫТИЕ ЗАВЕРШЕНО</span><span>СОБЫТИЕ ЗАВЕРШЕНО</span><span>СОБЫТИЕ ЗАВЕРШЕНО</span><span>СОБЫТИЕ ЗАВЕРШЕНО</span><span>СОБЫТИЕ ЗАВЕРШЕНО</span>
       </section>
 
       <section class="beta-test section">
         <div>
           <div style="padding-bottom: 16px;
-          display: flex;
-          flex-direction: column;">
-            <h2>УСПЕВАЙ ПРИСОЕДИНИТЬСЯ</h2>
-            <p>Старт совсем скоро! Узнавай код у @FLASH_ACID и вводи снизу сайта, скачивай сборку по инструкции и заходи на сервер!</p>
+            display: flex;
+            flex-direction: column;">
+            <h2>КАК ЭТО БЫЛО</h2>
+            <p>Заброшенный город, увлекательные испытания, полный хаос и&nbsp;примерно 20&nbsp;игроков сражались за&nbsp;свою жизнь. 
+              Только&nbsp;3&nbsp;из&nbsp;выживших смогли добраться до&nbsp;финального этапа, где&nbsp;сражались на&nbsp;городской свалке, окружённой барьером.</p>
+            Если вы участвовали в событии, пройдите форму обратной связи</p>
           </div>
-          <a class="main-button" href="#download">
-            <span>Скачать сборку</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14" />
-            </svg>
+          <a class="main-button" href="https://docs.google.com/forms/d/e/1FAIpQLSeWkTmg4QujksHlwaI1gO-Vu28nG40hu_JapuIIuzwayOGlFQ/viewform">
+            <span>Форма обратной связи</span>
           </a>
         </div>
-        <iframe class="fishex-video" width="560px" height="315" src="https://www.youtube.com/embed/LHzkFjiFc4E?si=3TW64CeQ6UJtEDQ4&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <article class="how_it_was feature-card feature-wide reveal">
+          <div class="card-number"> </div>
+          <div class="flight-carousel" data-videos="assets/videos/trailer.mp4,assets/images/how_it_was/1.png,assets/images/how_it_was/2.png">
+            <video class="flight-video" autoplay muted playsinline preload="metadata" aria-label="Видео живого мира">
+              <source src="assets/videos/trailer.mp4" type="video/mp4" />
+            </video>
+            <button class="flight-control flight-control-prev" type="button" aria-label="Предыдущее видео">
+              <span aria-hidden="true">←</span>
+            </button>
+            <button class="flight-control flight-control-next" type="button" aria-label="Следующее видео">
+              <span aria-hidden="true">→</span>
+            </button>
+            <div class="flight-progress" role="progressbar" aria-label="Видео 1 из 3" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
+              <span class="is-active"></span><span></span><span></span>
+            </div>
+          </div>
+
+          <div class="card-copy">
+            <h3> </h3>
+            <!-- <p>Коулун — это место контрастов, где прошлое и настоящее, 
+              хаос и порядок, шумные рынки и тихие парки существуют бок о бок. 
+              Это район, который точно стоит увидеть, 
+              чтобы по-настоящему понять дух Гонконга.</p> -->
+          </div>
+        </article>
+        <div class="thanks-streamers">
+          <div style="padding-bottom: 16px;
+          display: flex;
+          flex-direction: column;">
+            <h2>Спасибо стримерам!</h2>
+            <p><a href="https://www.twitch.tv/slipperezzz/video/2846833606" target="_blank">slipperezzz</a>, 
+              <a href="https://www.twitch.tv/videos/2846816538" target="_blank">mze1ya</a>, 
+              <a href="https://www.twitch.tv/videos/2846821422" target="_blank">odeyalko_1</a> - записи этих стримеров вы можете посмотрить ниже</p>
+          </div>
+          <div class="twitch-corousel">
+            <iframe class="twitch-iframe" src="https://player.twitch.tv/?video=2846833606&parent=fish-execution.vercel.app" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+            <iframe class="twitch-iframe" src="https://player.twitch.tv/?video=2846816538&parent=fish-execution.vercel.app" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+            <iframe class="twitch-iframe" src="https://player.twitch.tv/?video=2846821422&parent=fish-execution.vercel.app" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+          </div>
+          </div>
+        <!-- <iframe class="fishex-video" width="560px" height="315" src="https://www.youtube.com/embed/LHzkFjiFc4E?si=3TW64CeQ6UJtEDQ4&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
       </section>
 
       <section class="marquee" aria-hidden="true">
         <div class="marquee-track">
-          <span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span><span>ИГРА НАЧНЁТСЯ</span>
+          <span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span><span>НОВОЕ СОБЫТИЕ СКОРО</span>
         </div>
       </section>
 
@@ -321,11 +360,11 @@
             <span class="donation-signal" aria-hidden="true"></span>
             <p class="donation-label">Собрано вместе</p>
             <p class="donation-amount">
-              <span id="donation-total-value">—</span>
+              <span>1170</span>
               <small id="donation-total-currency">RUB</small>
             </p>
             <p class="donation-other-totals" id="donation-other-totals"></p>
-            <p class="donation-status" id="donation-status" aria-live="polite">Загружаем сумму…</p>
+            <p class="donation-status" aria-live="polite">Учтено донатов: 9</p>
           </div>
         </article>
       </section>

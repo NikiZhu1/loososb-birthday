@@ -447,10 +447,9 @@ document.addEventListener('DOMContentLoaded', function() {
 const flightCarousel = document.querySelector('.flight-carousel');
 
 if (flightCarousel) {
-  const flightVideo = flightCarousel.querySelector('.flight-video');
   const flightProgress = flightCarousel.querySelector('.flight-progress');
   const flightSteps = [...flightProgress.querySelectorAll('span')];
-  const videos = flightCarousel.dataset.videos.split(',');
+  const media = flightCarousel.dataset.videos.split(',').map((item) => item.trim()).filter(Boolean);
   let activeVideo = 0;
   let glitchTimer;
 
@@ -463,20 +462,35 @@ if (flightCarousel) {
   };
 
   const updateFlightVideo = (nextIndex) => {
-    activeVideo = (nextIndex + videos.length) % videos.length;
+    activeVideo = (nextIndex + media.length) % media.length;
     showFlightGlitch();
-    flightVideo.classList.add('is-switching');
-    flightVideo.src = videos[activeVideo];
-    flightVideo.load();
-    flightVideo.play().catch(() => {});
+    const source = media[activeVideo];
+    const isImage = /\.(avif|gif|jpe?g|png|webp)(?:[?#].*)?$/i.test(source);
+    const currentMedia = flightCarousel.querySelector('.flight-video, .flight-image');
+    const nextMedia = isImage ? document.createElement('img') : document.createElement('video');
+    nextMedia.className = isImage ? 'flight-image is-switching' : 'flight-video is-switching';
+    if (isImage) {
+      nextMedia.alt = `Материалы события, кадр ${activeVideo + 1}`;
+      nextMedia.addEventListener('load', () => nextMedia.classList.remove('is-switching'), { once: true });
+    } else {
+      nextMedia.autoplay = true;
+      nextMedia.muted = true;
+      nextMedia.playsInline = true;
+      nextMedia.preload = 'metadata';
+      nextMedia.addEventListener('canplay', () => { nextMedia.classList.remove('is-switching'); nextMedia.play().catch(() => {}); }, { once: true });
+      nextMedia.addEventListener('ended', () => updateFlightVideo(activeVideo + 1));
+    }
+    nextMedia.src = source;
+    currentMedia?.remove();
+    flightCarousel.insertBefore(nextMedia, flightCarousel.firstChild);
 
     flightSteps.forEach((step, index) => step.classList.toggle('is-active', index === activeVideo));
     flightProgress.setAttribute('aria-valuenow', activeVideo + 1);
-    flightProgress.setAttribute('aria-label', `Видео ${activeVideo + 1} из ${videos.length}`);
+    flightProgress.setAttribute('aria-valuemax', media.length);
+    flightProgress.setAttribute('aria-label', `Материал ${activeVideo + 1} из ${media.length}`);
   };
 
-  flightVideo.addEventListener('canplay', () => flightVideo.classList.remove('is-switching'));
-  flightVideo.addEventListener('ended', () => updateFlightVideo(activeVideo + 1));
   flightCarousel.querySelector('.flight-control-prev').addEventListener('click', () => updateFlightVideo(activeVideo - 1));
   flightCarousel.querySelector('.flight-control-next').addEventListener('click', () => updateFlightVideo(activeVideo + 1));
+  updateFlightVideo(0);
 }
